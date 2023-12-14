@@ -1,0 +1,274 @@
+[gd_scene load_steps=11 format=3 uid="uid://vher0yxwwx4y"]
+
+[ext_resource type="Script" path="res://scripts/menu_script.gd" id="1_yg6hc"]
+[ext_resource type="FontFile" uid="uid://ddlrwqphqmehs" path="res://assets/fonts/SegoeUIVariableStaticDisplayLight.ttf" id="2_1ds2r"]
+[ext_resource type="Texture2D" uid="uid://q2f4akk50p5x" path="res://assets/textures/image-000.png" id="2_t0tpy"]
+[ext_resource type="Texture2D" uid="uid://dfcsvw4tkq3dc" path="res://assets/textures/Cube.png" id="3_qyli1"]
+
+[sub_resource type="Gradient" id="Gradient_bepv2"]
+colors = PackedColorArray(0.301961, 0.301961, 0.301961, 0, 0.301961, 0.301961, 0.301961, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ywuwb"]
+gradient = SubResource("Gradient_bepv2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fvgfq"]
+line_spacing = 0.0
+font = ExtResource("2_1ds2r")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6ph5"]
+font_size = 22
+outline_size = 8
+outline_color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_loq16"]
+font_size = 22
+outline_size = 8
+outline_color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yhach"]
+font_size = 10
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yg6hc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1359.0
+offset_bottom = 1170.0
+texture = ExtResource("2_t0tpy")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ywuwb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titre" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "QUIXO"
+label_settings = SubResource("LabelSettings_fvgfq")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuLeft" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft"]
+layout_mode = 2
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonJouer" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 22
+text = "Nouvelle Partie 5*5"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 3.0
+max_value = 9.0
+value = 5.0
+tick_count = 7
+ticks_on_borders = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft"]
+layout_mode = 2
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="ButtonInstructions" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Instructions"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft"]
+layout_mode = 2
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="ButtonQuitter" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Quitter"
+
+[node name="MenuRight" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MenuRight"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player1Info" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player1Info"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player1Info/HBoxContainer"]
+layout_mode = 2
+text = "Joueur 1"
+label_settings = SubResource("LabelSettings_e6ph5")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player1Info/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player1Info/HBoxContainer/AspectRatioContainer"]
+texture_filter = 1
+position = Vector2(25, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_qyli1")
+hframes = 3
+frame = 1
+
+[node name="ButtonSwitch" type="Button" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "switch"
+
+[node name="Player2Info" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player2Info"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player2Info/HBoxContainer"]
+layout_mode = 2
+text = "Joueur 2"
+label_settings = SubResource("LabelSettings_loq16")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player2Info/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player2Info/HBoxContainer/AspectRatioContainer"]
+texture_filter = 1
+position = Vector2(25, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_qyli1")
+hframes = 3
+frame = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/Player2Info"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "IA"
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Hippolyte JEAN - M1 ILIADE"
+label_settings = SubResource("LabelSettings_yhach")
+horizontal_alignment = 1
+
+[node name="Instructions" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="Instructions"]
+layout_mode = 2
+color = Color(0.247059, 0.270588, 0.309804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Instructions"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Instructions/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Instructions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][font_size=20][b]BUT DU JEU[/b][/font_size]
+Créer une ligne horizontale, verticale ou diagonale de 5 cubes à sa marque (fig 5).[/center]
+
+[font_size=20][b]DEROULEMENT D’UNE PARTIE[/b][/font_size]
+[ol]A tour de rôle, chaque joueur choisit un cube et le déplace selon les règles suivantes. En aucun cas, un joueur ne peut passer son tour.
+[p][/p][b]Choix et saisie du cube:[/b] Le joueur choisit et saisit, en périphérie du plateau, un cube neutre ou à sa marque (fig 3). Au premier tour de jeu, les joueurs n’ont pas d’autre choix que de saisir un cube neutre. On ne peut jamais saisir un cube de marque adverse.
+[p][/p][b]Changement de marque du cube:[/b] Que le cube saisi soit neutre ou déja à la marque du joueur, il sera toujours replacé avec la marque du joueur sur sa face supérieure.
+[p][/p][b]Replacement du cube:[/b] Le joueur replace le cube à l’une des extrémités de son choix des rangées incomplètes créées lors de la saisie; il pousse sur cette extrémité pour replacer le cube. On ne peut jamais replacer le cube joué à l’endroit où il a été saisi.
+[/ol][indent]Fig 4: le cube peut être replacé sur le plateau en poussant sur A, B ou C.[/indent]
+
+[font_size=20][b]FIN DE LA PARTIE[/b][/font_size]
+[indent]Est gagnant le joueur qui crée et annonce une ligne horizontale, verticale ou diagonale de cinq cubes à sa marque. Un joueur qui [b]crée une ligne de marque adverse perd la partie[/b], même si il crée en même temps une ligne à sa marque.[/indent]
+
+[center][img]res://assets/textures/image-001.png[/img][/center]
+
+[i]Un mode de jeu à quatre joueur est normalement possible, mais par manque de temps il n'a pas été implémenté.[/i]"
+
+[node name="ButtonFermer" type="Button" parent="Instructions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Fermer"
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer/VBoxContainer/ButtonJouer" to="." method="_on_button_jouer_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer/VBoxContainer/MarginContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer3/ButtonInstructions" to="." method="_on_button_instructions_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/MenuLeft/MarginContainer2/ButtonQuitter" to="." method="_on_button_quitter_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuRight/VBoxContainer/ButtonSwitch" to="." method="_on_button_switch_pressed"]
+[connection signal="pressed" from="Instructions/MarginContainer/VBoxContainer/ButtonFermer" to="." method="_on_button_fermer_pressed"]

@@ -1,0 +1,192 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg0k08ga472od"]
+
+[ext_resource type="Script" path="res://scripts/ihm_script.gd" id="1_h7f1c"]
+[ext_resource type="Texture2D" uid="uid://dfcsvw4tkq3dc" path="res://assets/textures/Cube.png" id="2_x1a6m"]
+[ext_resource type="PackedScene" uid="uid://r3ntxi4lpv88" path="res://scenes/plateau.tscn" id="3_wvo7w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_krbl0"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ux5n"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_foki2"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_4d1u3"]
+font_size = 20
+
+[node name="IHM" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_h7f1c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+color = Color(0.415686, 0.34902, 0.356863, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Player1Info" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info"]
+layout_mode = 2
+
+[node name="Pointeur" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info/HBoxContainer"]
+layout_mode = 2
+text = ">"
+label_settings = SubResource("LabelSettings_krbl0")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info/HBoxContainer"]
+layout_mode = 2
+text = "Joueur 1"
+label_settings = SubResource("LabelSettings_6ux5n")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info/HBoxContainer/AspectRatioContainer"]
+texture_filter = 1
+texture = ExtResource("2_x1a6m")
+centered = false
+hframes = 3
+
+[node name="Timer" type="Timer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info"]
+autostart = true
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info"]
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="Player2Info" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info"]
+layout_mode = 2
+
+[node name="Pointeur" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info/HBoxContainer"]
+layout_mode = 2
+text = ">"
+label_settings = SubResource("LabelSettings_foki2")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info/HBoxContainer"]
+layout_mode = 2
+text = "Joueur 2"
+label_settings = SubResource("LabelSettings_4d1u3")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info/HBoxContainer/AspectRatioContainer"]
+texture_filter = 1
+texture = ExtResource("2_x1a6m")
+centered = false
+hframes = 3
+
+[node name="Timer" type="Timer" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info"]
+autostart = true
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info"]
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="ButtonAnnule" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+disabled = true
+text = "Annuler"
+
+[node name="ButtonRestart" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+text = "Recommencer"
+
+[node name="ButtonRetour" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+text = "Retour au menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Plateau" parent="HBoxContainer/MarginContainer" instance=ExtResource("3_wvo7w")]
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+color = Color(0.258824, 0.596078, 0.290196, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "placeholder
+second line"
+horizontal_alignment = 1
+
+[node name="ButtonCacher" type="Button" parent="HBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "⤆"
+
+[connection signal="item_rect_changed" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info/HBoxContainer/AspectRatioContainer" to="." method="_on_aspect_ratio_container_item_rect_changed"]
+[connection signal="timeout" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player1Info/Timer" to="." method="_on_timerP1_timeout"]
+[connection signal="item_rect_changed" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info/HBoxContainer/AspectRatioContainer" to="." method="_on_aspect_ratio_container_item_rect_changed"]
+[connection signal="timeout" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Player2Info/Timer" to="." method="_on_timerP2_timeout"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonAnnule" to="HBoxContainer/MarginContainer/Plateau" method="_on_button_annule_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonRestart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonRetour" to="." method="_on_button_retour_pressed"]
+[connection signal="item_rect_changed" from="HBoxContainer/MarginContainer" to="HBoxContainer/MarginContainer/Plateau" method="_on_margin_container_item_rect_changed"]
+[connection signal="game_over" from="HBoxContainer/MarginContainer/Plateau" to="." method="_on_plateau_game_over"]
+[connection signal="move_played" from="HBoxContainer/MarginContainer/Plateau" to="." method="_on_plateau_move_played"]
+[connection signal="undid_previous_move" from="HBoxContainer/MarginContainer/Plateau" to="." method="_on_plateau_undid_previous_move"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/ButtonCacher" to="." method="_on_button_cacher_pressed"]

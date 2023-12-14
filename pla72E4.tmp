@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://r3ntxi4lpv88"]
+
+[ext_resource type="Script" path="res://Plateau.gd" id="1_plthw"]
+
+[sub_resource type="Gradient" id="Gradient_omxth"]
+colors = PackedColorArray(0, 0, 0, 1, 0.576471, 0.227451, 0.109804, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g3mbq"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_riayl"]
+color_ramp = SubResource("Gradient_omxth")
+noise = SubResource("FastNoiseLite_g3mbq")
+
+[node name="Plateau" type="Node2D"]
+script = ExtResource("1_plthw")
+isPlayer1sTurn = null
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("NoiseTexture2D_riayl")
+expand_mode = 1
